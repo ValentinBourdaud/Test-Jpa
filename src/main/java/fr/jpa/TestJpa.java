@@ -1,9 +1,11 @@
-package main.java;
+package fr.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,7 @@ public class TestJpa {
 
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
 		EntityManager em = entityManagerFactory.createEntityManager();
+		EntityTransaction et = em.getTransaction();
 
 		Livre book = em.find(Livre.class, 1);
 
@@ -27,7 +30,12 @@ public class TestJpa {
 		Livre l = (Livre) query.getSingleResult();
 		LOG.info("L'auteur est = " + l.toString());
 
-		em.close();
+	
+		TypedQuery<Emprunt> query2 = em.createQuery("SELECT emp FROM Emprunt emp WHERE id=:idEmprunt", Emprunt.class);
+		query2.setParameter("idEmprunt", 1);
+		Emprunt emp = query2.getSingleResult();
+		LOG.info("Voici les livres associées à cet emprunt : " + emp.getLivre().toString());
+	
 
 	}
 

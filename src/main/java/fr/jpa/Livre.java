@@ -1,8 +1,11 @@
-package main.java;
+package fr.jpa;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,9 @@ public class Livre {
 	private String titre;
 	@Column(name = "AUTEUR", length = 30, nullable = false, unique = true)
 	private String auteur;
+	
+	@ManyToMany(mappedBy= "livre")
+	private Set<Emprunt> emprunt;
 
 
 	public Livre(){
@@ -32,6 +38,9 @@ public class Livre {
 	public String getAuteur(){
 		return auteur;
 		
+	}
+	public Set<Emprunt> emprunt(){
+		return emprunt;
 	}
 	
 	public String toString(){
