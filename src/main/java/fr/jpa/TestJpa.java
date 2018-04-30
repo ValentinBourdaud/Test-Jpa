@@ -35,6 +35,11 @@ public class TestJpa {
 		query2.setParameter("idEmprunt", 1);
 		Emprunt emp = query2.getSingleResult();
 		LOG.info("Voici les livres associées à cet emprunt : " + emp.getLivre().toString());
+		
+		TypedQuery<Client> query3 = em.createQuery("SELECT cl FROM Client cl WHERE id=:idClient", Client.class);
+		query3.setParameter("idClient", 1);
+		Client cli2 = query3.getSingleResult();
+		LOG.info("Voici les emprunts de ce client : " + cli2.getEmprunt().toString());
 	
 
 	}

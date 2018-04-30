@@ -40,8 +40,11 @@ public class Client {
 		return prenom;
 		
 	}
+	public Set<Emprunt> getEmprunt(){
+		return emprunt;
+	}
 	
 	public String toString(){
-		return ("lala") ;
+		return this.prenom ;
 	}
 }

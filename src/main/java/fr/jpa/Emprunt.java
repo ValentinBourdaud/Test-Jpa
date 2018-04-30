@@ -66,6 +66,6 @@ public class Emprunt {
 	}
 
 	public String toString() {
-		return ("L'emprunt n°" + this.id + "a débuté le " + this.datedebut + " et terminé le " + this.datefin + " avec un délai de " + this.delai + "et a été emprunté par " + this.client);
+		return ("L'emprunt n°" + this.id + " a débuté le " + this.datedebut + " et terminé le " + this.datefin + " avec un délai de " + this.delai + " et a été emprunté par " + this.client);
 	}
 }
