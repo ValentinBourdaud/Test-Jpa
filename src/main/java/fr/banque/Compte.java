@@ -7,4 +7,6 @@ import javax.persistence.Table;
 @Table
 public class Compte {
 
+	private String nom;
+	private Double solde;
 }

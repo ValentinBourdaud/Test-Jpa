@@ -7,4 +7,5 @@ import javax.persistence.Table;
 @Table
 public class Banque {
 
+	private String nom;
 }
