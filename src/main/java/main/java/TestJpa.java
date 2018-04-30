@@ -25,7 +25,7 @@ public class TestJpa {
 		}
 		Query query = em.createQuery("select l from Livre l where l.titre = 'Germinal'");
 		Livre l = (Livre)query.getSingleResult();
-		LOG.info("L'auteur est = " + l.getAuteur());
+		LOG.info("L'auteur est = " + l.toString());
 		
 		em.close();
 

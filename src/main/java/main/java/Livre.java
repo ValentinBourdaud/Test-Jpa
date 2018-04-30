@@ -37,4 +37,8 @@ public class Livre {
 		return auteur;
 		
 	}
+	
+	public String toString(){
+		return ("L'ID est " + this.id + ", le titre est " + this.titre + ", et l'auteur est " + this.auteur);
+	}
 }
