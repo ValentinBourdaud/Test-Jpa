@@ -16,7 +16,7 @@ public class TestJpa {
 
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
 		EntityManager em = entityManagerFactory.createEntityManager();
-		
+
 		Livre book = em.find(Livre.class, 1);
 
 		if (book != null) {
@@ -24,9 +24,9 @@ public class TestJpa {
 
 		}
 		Query query = em.createQuery("select l from Livre l where l.titre = 'Germinal'");
-		Livre l = (Livre)query.getSingleResult();
+		Livre l = (Livre) query.getSingleResult();
 		LOG.info("L'auteur est = " + l.toString());
-		
+
 		em.close();
 
 	}

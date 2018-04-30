@@ -5,9 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 @Entity
 @Table
 public class Livre {
@@ -19,7 +16,6 @@ public class Livre {
 	@Column(name = "AUTEUR", length = 30, nullable = false, unique = true)
 	private String auteur;
 
-	private static final Logger LOG = LoggerFactory.getLogger(TestJpa.class);
 
 	public Livre(){
 		
