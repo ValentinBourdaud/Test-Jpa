@@ -28,6 +28,6 @@ public class Adress {
 	}
 	
 	public String toString(){
-		return ("");
+		return ("L'adresse est " + this.numero + " " + this.rue + " " + this.codePostal + " " + this.ville);
 	}
 }

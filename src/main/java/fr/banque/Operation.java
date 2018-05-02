@@ -34,7 +34,7 @@ public class Operation {
 	}
 	
 	public String toString(){
-		return lala;
+		return ("La date est " + this.date + " , le montant de l'operation est de " + this.montant + " et le motif est " + this.motif);
 		
 	}
 }

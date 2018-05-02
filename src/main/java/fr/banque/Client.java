@@ -26,7 +26,7 @@ public class Client {
 	}
 	
 	public String toString(){
-		return ("");
+		return ("Le nom du client est " + this.nom + ", son prenom est " + this.prenom + " et il est né le " + this.dateNaissance);
 	}
 }
 
