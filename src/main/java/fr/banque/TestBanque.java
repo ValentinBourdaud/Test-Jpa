@@ -1,6 +1,7 @@
 package fr.banque;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -56,6 +57,11 @@ public class TestBanque {
 		em.persist(a2);
 		et.commit();
 		
+		
+		Virement v1 = new Virement(LocalDateTime.of(2014, 11, 12, 13, 47), 147.0, "Regularisation", "Stephane");
+		et.begin();
+		em.persist(v1);
+		et.commit();
 		
 		em.close();
 		entityManagerFactory.close();

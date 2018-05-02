@@ -1,6 +1,7 @@
 package fr.banque;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -29,13 +30,14 @@ public abstract class Operation {
 	@ManyToMany(mappedBy="operation")
 	private Set<Compte> compte;
 	
-	public Operation(LocalDateTime date, Double montant, String motif, Set<Compte> compte) {
+	public Operation(LocalDateTime date, Double montant, String motif) {
 		super();
 		this.date = date;
 		this.montant = montant;
 		this.motif = motif;
-		this.compte = compte;
+		this.compte = new HashSet<Compte>();
 	}
+	
 
 	public LocalDateTime getDate() {
 		return date;
