@@ -43,6 +43,20 @@ public class TestBanque {
 		
 		
 		
+		Banque banque3 = new Banque("Credit Mutuel");
+		Adress adress3= new Adress(28, "Rue des Chicanes", 73000, "Chambery");
+		Client cli3 = new Client(3, "Braille", "Louis", LocalDate.of(1854, 11, 24), banque3, adress3);
+		LivretA l2= new LivretA("Livret A", 1454.0, "4756510001", cli3, 1.9);
+		AssuranceVie a2 = new AssuranceVie("Assurance vie", 14522210.0, "474753636", cli3, LocalDate.of(1947, 10, 27), 1.9);
+		
+		et.begin();
+		em.persist(banque3);
+		em.persist(cli3);
+		em.persist(l2);
+		em.persist(a2);
+		et.commit();
+		
+		
 		em.close();
 		entityManagerFactory.close();
 		
