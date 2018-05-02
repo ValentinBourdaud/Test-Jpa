@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +60,19 @@ public class TestBanque {
 		et.commit();
 		
 		
+		Adress adress4= new Adress(24, "Rue des routes", 84520, "Avignon");
+		Client cli4 = new Client(4, "Dreyfus", "Robert", LocalDate.of(1975, 11, 10), banque3, adress4);
+		LivretA l3= new LivretA("Livret A", 1874.0, "445621", cli4, 1.7);
+		AssuranceVie a3 = new AssuranceVie("Assurance vie", 4757445.0, "454544", cli4, LocalDate.of(1968, 07, 14), 1.4);
+		
+		et.begin();
+		em.persist(banque3);
+		em.persist(cli4);
+		em.persist(l3);
+		em.persist(a3);
+		et.commit();
+		
+		
 		Virement v1 = new Virement(LocalDateTime.of(2014, 11, 12, 13, 47), 147.0, "Regularisation", "Stephane");
 		et.begin();
 		em.persist(v1);
@@ -65,6 +80,11 @@ public class TestBanque {
 		
 		em.close();
 		entityManagerFactory.close();
+		
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery <Client> cq = cb.createQuery(Client.class);
+		
 		
 		
 
