@@ -4,29 +4,47 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "banque")
 public class Banque {
+	
+	@Id
+	private int id;
 
 	@Column(name = "NAME")
 	private String nom;
 	
 	@OneToMany(mappedBy="banque")
 	private Set<Client> clients;
+
 	
 	
-	public Banque(){
-		
+	public Banque(String nom, Set<Client> clients) {
+		super();
+		this.nom = nom;
+		this.clients = clients;
 	}
-	
-	public String getNom(){
+
+	public String getNom() {
 		return nom;
 	}
-	
-	public String toString(){
-		return ("Le nom de la banque est " + this.nom);
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
+
+	public Set<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
+	}
+	
+	
+
 }

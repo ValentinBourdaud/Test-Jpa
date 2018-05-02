@@ -5,12 +5,19 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
-public class Operation {
+@Table(name = "operation")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Operation {
+	
+	@Id
+	private int id;
 	
 	@Column(name = "DATE")
 	private LocalDateTime date;
@@ -22,24 +29,45 @@ public class Operation {
 	@ManyToMany(mappedBy="operation")
 	private Set<Compte> compte;
 	
-	
-	
-	public LocalDateTime getDate(){
+	public Operation(LocalDateTime date, Double montant, String motif, Set<Compte> compte) {
+		super();
+		this.date = date;
+		this.montant = montant;
+		this.motif = motif;
+		this.compte = compte;
+	}
+
+	public LocalDateTime getDate() {
 		return date;
-		
 	}
-	
-	public Double getMontant(){
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
+	public Double getMontant() {
 		return montant;
-		
 	}
-	
-	public String getMotif(){
+
+	public void setMontant(Double montant) {
+		this.montant = montant;
+	}
+
+	public String getMotif() {
 		return motif;
 	}
-	
-	public String toString(){
-		return ("La date est " + this.date + " , le montant de l'operation est de " + this.montant + " et le motif est " + this.motif);
-		
+
+	public void setMotif(String motif) {
+		this.motif = motif;
 	}
+
+	public Set<Compte> getCompte() {
+		return compte;
+	}
+
+	public void setCompte(Set<Compte> compte) {
+		this.compte = compte;
+	}
+	
+
 }

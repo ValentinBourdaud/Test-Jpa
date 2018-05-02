@@ -1,11 +1,13 @@
 package fr.banque;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -14,6 +16,9 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Client {
+	
+	@Id
+	private int id;
 
 	@Column(name = "NOM")
 	private String nom;
@@ -31,35 +36,69 @@ public class Client {
 	
 	@OneToMany(mappedBy="client")
 	private Set <Compte> comptes;
+
 	
 	
-	public String getNom(){
+	public Client(int id,String nom, String prenom, LocalDate dateNaissance, Banque banque, Adress adress) {
+		super();
+		this.id=id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.banque = banque;
+		this.adress = adress;
+		this.comptes = new HashSet<Compte>();
+	}
+
+	public String getNom() {
 		return nom;
 	}
-	
-	public String getPrenom(){
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
 		return prenom;
 	}
-	
-	public LocalDate getDateNaissance(){
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
-	
-	private Banque getBanque (){
+
+	public void setDateNaissance(LocalDate dateNaissance) {
+		this.dateNaissance = dateNaissance;
+	}
+
+	public Banque getBanque() {
 		return banque;
 	}
-	
-	private Adress getAdress(){
+
+	public void setBanque(Banque banque) {
+		this.banque = banque;
+	}
+
+	public Adress getAdress() {
 		return adress;
 	}
-	
-	public Set <Compte> comptes(){
+
+	public void setAdress(Adress adress) {
+		this.adress = adress;
+	}
+
+	public Set<Compte> getComptes() {
 		return comptes;
 	}
-	
-	
-	public String toString(){
-		return ("Le nom du client est " + this.nom + ", son prenom est " + this.prenom + " et il est né le " + this.dateNaissance);
+
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
 	}
+	
+	
+	
 }
 
