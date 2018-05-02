@@ -28,7 +28,7 @@ public class Client {
 	private LocalDate dateNaissance;
 	
 	@ManyToOne
-	@JoinColumn(name ="ID")
+	@JoinColumn(name ="ID_BANQUE")
 	private Banque banque;
 	
 	@Embedded
@@ -39,7 +39,7 @@ public class Client {
 
 	
 	
-	public Client(int id,String nom, String prenom, LocalDate dateNaissance, Banque banque, Adress adress) {
+	public Client(int id, String nom, String prenom, LocalDate dateNaissance, Banque banque, Adress adress) {
 		super();
 		this.id=id;
 		this.nom = nom;
@@ -49,6 +49,17 @@ public class Client {
 		this.adress = adress;
 		this.comptes = new HashSet<Compte>();
 	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 	public String getNom() {
 		return nom;

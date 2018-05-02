@@ -1,5 +1,6 @@
 package fr.banque;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 public class Banque {
 	
 	@Id
+	
 	private int id;
 
 	@Column(name = "NAME")
@@ -23,11 +25,26 @@ public class Banque {
 
 	
 	
-	public Banque(String nom, Set<Client> clients) {
+	public Banque(String nom) {
 		super();
 		this.nom = nom;
-		this.clients = clients;
+		this.clients = new HashSet<Client>();
+			;
 	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public String getNom() {
 		return nom;

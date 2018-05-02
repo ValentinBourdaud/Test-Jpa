@@ -30,7 +30,7 @@ public class Compte {
 	private Double solde;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID")
+	@JoinColumn(name = "ID_CLIENT")
 	private Client client;
 	
 	@ManyToMany
