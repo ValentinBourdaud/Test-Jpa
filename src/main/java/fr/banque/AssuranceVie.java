@@ -19,7 +19,7 @@ public class AssuranceVie extends Compte {
 	
 	public AssuranceVie(String nom, Double solde, Client client, Set<Operation> operation, LocalDate dateFin,
 			Double taux) {
-		super(nom, solde, client, operation);
+		super(nom, solde, nom, client);
 		this.dateFin = dateFin;
 		this.taux = taux;
 	}

@@ -1,5 +1,6 @@
 package fr.banque;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -41,12 +42,13 @@ public class Compte {
 	private Set <Operation> operation;
 
 	
-	public Compte(String nom, Double solde, Client client, Set<Operation> operation) {
+	public Compte(String nom, Double solde, String numero, Client client) {
 		super();
 		this.nom = nom;
 		this.solde = solde;
+		this.numero=numero;
 		this.client = client;
-		this.operation = operation;
+		this.operation = new HashSet<Operation>();
 	}
 	public String getNom() {
 		return nom;
@@ -63,7 +65,14 @@ public class Compte {
 	public void setSolde(Double solde) {
 		this.solde = solde;
 	}
+	
 
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 	public Client getClient() {
 		return client;
 	}

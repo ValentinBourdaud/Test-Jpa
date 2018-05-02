@@ -27,6 +27,18 @@ public class TestBanque {
 		em.persist(banque);
 		em.persist(cli);
 		et.commit();
+		
+		Banque banque2 = new Banque("BNP Paribas");
+		Adress adress2 = new Adress(14, "Rue des Mouettes", 54210, "Marginy");
+		Client cli2 = new Client(2, "Dupont", "Stephane", LocalDate.of(1956, 11, 07), banque2, adress2);
+		Compte c1 = new Compte("Compte Cheque", 15000.00, "151545154541", cli2);
+		et.begin();
+		em.persist(banque2);
+		em.persist(cli2);
+		em.persist(c1);
+		et.commit();
+		
+		
 		em.close();
 		entityManagerFactory.close();
 		
