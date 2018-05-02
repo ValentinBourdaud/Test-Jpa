@@ -12,4 +12,21 @@ public class Client {
 	private String nom;
 	private String prenom;
 	private LocalDate dateNaissance;
+	
+	public String getNom(){
+		return nom;
+	}
+	
+	public String getPrenom(){
+		return prenom;
+	}
+	
+	public LocalDate getDateNaissance(){
+		return dateNaissance;
+	}
+	
+	public String toString(){
+		return ("");
+	}
 }
+
