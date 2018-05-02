@@ -1,9 +1,11 @@
 package fr.banque;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,9 @@ public class Operation {
 	private Double montant;
 	@Column(name = "MOTIF")
 	private String motif;
+	
+	@ManyToMany(mappedBy="operation")
+	private Set<Compte> compte;
 	
 	
 	
