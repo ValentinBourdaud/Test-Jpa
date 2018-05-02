@@ -1,7 +1,6 @@
 package fr.banque;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,15 +10,16 @@ import javax.persistence.Table;
 @Table(name = "assuranceVie")
 public class AssuranceVie extends Compte {
 
+	
+	
 	@Column(name = "DATE_FIN")
 	private LocalDate dateFin;
 	
 	@Column(name = "TAUX")
 	private Double taux;
-	
-	public AssuranceVie(String nom, Double solde, Client client, Set<Operation> operation, LocalDate dateFin,
-			Double taux) {
-		super(nom, solde, nom, client);
+
+	public AssuranceVie(String nom, Double solde, String numero, Client client, LocalDate dateFin, Double taux) {
+		super(nom, solde, numero, client);
 		this.dateFin = dateFin;
 		this.taux = taux;
 	}

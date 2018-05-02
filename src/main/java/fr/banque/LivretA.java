@@ -1,7 +1,5 @@
 package fr.banque;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,13 +8,13 @@ import javax.persistence.Table;
 @Table(name = "livretA")
 public class LivretA extends Compte {
 	
+	
+	
 	@Column(name = "TAUX")
 	private Double taux;
 
-	
-	
-	public LivretA(String nom, Double solde, Client client, Set<Operation> operation, Double taux) {
-		super(nom, solde, nom, client);
+	public LivretA(String nom, Double solde, String numero, Client client, Double taux) {
+		super(nom, solde, numero, client);
 		this.taux = taux;
 	}
 

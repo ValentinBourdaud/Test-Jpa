@@ -31,12 +31,16 @@ public class TestBanque {
 		Banque banque2 = new Banque("BNP Paribas");
 		Adress adress2 = new Adress(14, "Rue des Mouettes", 54210, "Marginy");
 		Client cli2 = new Client(2, "Dupont", "Stephane", LocalDate.of(1956, 11, 07), banque2, adress2);
-		Compte c1 = new Compte("Compte Cheque", 15000.00, "151545154541", cli2);
+		LivretA l1= new LivretA("Compte Cheque", 154873.0, "454542154", cli2, 1.7);
+		AssuranceVie a1 = new AssuranceVie("Assurance vie", 14523.0, "44454154", cli2, LocalDate.of(1986, 01, 17), 1.4);
+		
 		et.begin();
 		em.persist(banque2);
 		em.persist(cli2);
-		em.persist(c1);
+		em.persist(l1);
+		em.persist(a1);
 		et.commit();
+		
 		
 		
 		em.close();
